@@ -1,0 +1,14 @@
+[user]
+	email = wshue0@github.com
+	name = wshue0
+[crential]
+	ehlper = store
+	helper = store
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status

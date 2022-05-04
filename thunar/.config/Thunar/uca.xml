@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1646510861718631-1</unique-id>
+	<command>alacritty --working-directory %f</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>nvim</icon>
+	<name>Edit</name>
+	<unique-id>1646511227102647-2</unique-id>
+	<command>alacritty -e nvim %f</command>
+	<description>Edit in VIM</description>
+	<patterns>*</patterns>
+	<directories/>
+	<text-files/>
+</action>
+</actions>

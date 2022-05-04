@@ -1,0 +1,241 @@
+### i3 Config File ###
+
+# Set modifier to Mod1, Mod4 if Mac
+# TODO: Detect mac vs linux and adjust accordingly
+set $mod Mod1
+
+# Font for Windows
+font pango:DejaVu Sans Mono 10
+
+### Start up Apps
+# Info: Need to set the lockscreen first so that the loading things aren't seen
+# Start login screen
+exec ~/.scripts/login_screen.sh
+exec ~/.config/i3/.fehbg &
+# Restore with i3 resurrect
+exec ~/.scripts/i3_restore.sh
+# Start Network Manager applet
+exec --no-startup-id nm-applet
+# Start Polybar Bar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+# Start bluetooth
+exec --no-startup-id blueman-applet
+# Start notifications
+exec_always --no-startup-id dunst
+# Start Albert
+exec_always --no-startup-id albert
+# Start Redshift, for screen tint
+exec redshift -l 34.14778:-118.14452 
+# Start autosleep script
+exec ~/.scripts/auto_lock.sh
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+### Key bindings
+# Use pulseaudio to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-control --volume-max 100 --volume-step 10 up
+bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-control --volume-step 10 down
+bindsym XF86AudioMute exec --no-startup-id pulseaudio-control togmute
+
+# Use polybar script to bind play/pause/skip to
+bindsym XF86AudioPause exec ~/.config/polybar/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause
+bindsym XF86AudioNext exec ~/.config/polybar/polybar-scripts/player-mpris-tail/player-mpris-tail.py next
+bindsym XF86AudioPrev exec ~/.config/polybar/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous
+
+# Flameshot commands
+# Map print screen to taking screenshot with flameshot
+bindsym Print exec --no-startup-id flameshot full -c -p ~/Pictures/Screenshots
+bindsym $mod+Ctrl+4 exec --no-startup-id flameshot gui -c -p ~/Pictures/Screenshots
+bindsym $mod+Ctrl+3 exec --no-startup-id flameshot full -c -p ~/Pictures/Screenshots
+
+# launch htop (like task manager for mac)
+bindsym $mod+mod4+Escape exec "exec alacritty -e htop"
+
+# Disable Full screen if possible, and launch Albert (Spotlight replacement)
+bindsym Ctrl+mod4+space exec "i3-msg fullscreen disable && albert show"
+
+# Opens any files using rifle and FZF matching
+bindsym $mod+o exec "i3-msg fullscreen disable && alacritty --class opener -e ~/.scripts/opener.sh"
+
+# Saves current layout and also notifys
+bindsym $mod+Shift+s exec "notify-send 'i3' 'Saved Workspaces' & ~/.scripts/i3_save.sh" 
+
+# Shortcut for messaging tab
+#bindsym $mod+m workspace number $ws6
+
+# for cycling between consecutive workspaces (and the reverse)
+#bindsym $mod+Tab workspace next 
+#bindsym $mod+Shift+Tab workspace prev
+# UPDATE: change to window searcher
+bindsym $mod+Tab exec "rofi -show window"
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Start a terminal
+bindsym $mod+Return exec alacritty
+
+# Start a terminal with same pwd
+# bindsym $mod+Shift+Return exec "~/.scripts/spawn_instance_pwd.sh"
+ bindsym $mod+Shift+Return exec "alacritty --working-directory $(xcwd)"
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l  move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+i split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# default split left and right
+default_orientation horizontal
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+bindsym $mod+e layout toggle tabbed split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+# focus the child container
+bindsym $mod+s focus child
+
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# Enable back and forth
+workspace_auto_back_and_forth yes
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# move window to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+equal [class=".*"] scratchpad show
+# show scratchpad
+#bindsym $mod+m [class="Caprine"] scratchpad show
+bindsym $mod+m [title="fb_messenger"] scratchpad show
+bindsym $mod+d [title="GCAL"] scratchpad show
+# new for random chrome tab for searching stuff
+bindsym $mod+b [title="Misc"] scratchpad show
+
+# Disable focus wrapping
+focus_wrapping no
+
+# Toggle floating windows for all windows on workspace
+bindsym $mod+Shift+f [workspace="__focused__"] floating toggle
+
+# Disable focus on i3frames, so when i3 restores it doesn't spam the screen
+
+# Disable all Borders
+for_window [class=".*"] border pixel 0
+for_window [title=".*"] border pixel 0
+
+# i3 gaps width
+gaps inner 15
+
+### Styling of i3 titles/windows
+# class                 border  backgr. text    indicator child_border
+#koi
+# client.focused          #000000 #F39F5C #170c04 #F39F5C   #F39F5C
+# client.focused_inactive #000000 #F39F5C #777777 #F39F5C   #F39F5C
+# client.unfocused        #000000 #170C04 #ebd3a4 #170C04   #170C04
+# client.urgent           #000000 #D25F2C #ffffff #D25F2C   #D25F2C
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+#cat
+client.focused          #1E1D2F #ABE9B3 #6E6C7E #ABE9B3   #ABE9B3
+client.focused_inactive #1E1D2F #ABE9B3 #777777 #ABE9B3   #ABE9B3
+client.unfocused        #1E1D2F #6E6C7E #89DCEB #6E6C7E   #6E6C7E
+client.urgent           #1E1D2F #F28FAD #D9E0EE #F28FAD   #F28FAD
+client.placeholder      #1E1D2F #6E6C7E #D9E0EE #1E1D2F   #6E6C7E
+
+#client.background       #ffffff
+
+# Make pop-ups floating
+for_window [window_role="pop-up"] floating enable
+
+# Custom window class/title handling
+# Make file opener floating in FZF mode, disable after executing rifle
+for_window [instance="opener" title = "Alacritty"] sticky enable, floating enable, resize set 2400 1200, move position center
+for_window [instance="opener" title = "^(?:(?!Alacritty).)*$"] floating disable
+#for_window [class="Alacritty" floating ] move position mouse, resize set 1000 1000
+
+# Enable sticky for the scratchpad apps
+#for_window [class="Caprine"] sticky enable, floating enable
+for_window [title="GCAL"] sticky enable
+for_window [title="fb_messenger"] sticky enable, floating enable
+
+# Make misc. zoom windows floating
+for_window [class="zoom" title = "Settings"] floating enable
+for_window [class="zoom" title = "Chat"] floating enable
+for_window [class="zoom" title = "zoom"] floating enable
+for_window [class="zoom" title = "Zoom - Licensed Account"] floating enable
+for_window [class="zoom" title = "^Participants.*$"] floating enable
