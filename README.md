@@ -24,7 +24,6 @@ My dotfiles for the following programs:
 - cli-visualizer
 - pistol
 - spicetify
-- arch
 
 
 

@@ -48,7 +48,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 
 export FZF_DEFAULT_COMMAND='fd --hidden --exclude "{.git,node_modules}" . '.''
 export FZF_ALT_C_COMMAND='fd --hidden -t d --exclude "{.git,node_modules}" . '.''
-export FZF_CTRL_O_COMMAND='fd --hidden -t f --exclude "{.git,node_modules}" . '.''
+export FZF_CTRL_O_COMMAND='fd --hidden -t f -t l  --exclude "{.git,node_modules}" . '.''
 export FZF_CTRL_T_COMMAND='fd --hidden --exclude "{.git,node_modules}" . '/''
 
 # old ls alias
