@@ -13,7 +13,7 @@ i3-resurrect restore -w 9
 i3-resurrect restore -w __i3_scratch --layout-only
 brave &
 sleep 3
-# caprine &
+caprine &
 i3-msg "[floating] move scratchpad" 
 picom -b --experimental-backends &
 ~/.scripts/widgets.sh

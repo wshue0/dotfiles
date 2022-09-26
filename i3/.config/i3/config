@@ -181,8 +181,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+Shift+equal [class=".*"] scratchpad show
 # show scratchpad
-#bindsym $mod+m [class="Caprine"] scratchpad show
-bindsym $mod+m [title="fb_messenger"] scratchpad show
+bindsym $mod+m [class="Caprine"] scratchpad show
+#bindsym $mod+m [title="fb_messenger"] scratchpad show
 bindsym $mod+d [title="GCAL"] scratchpad show
 # new for random chrome tab for searching stuff
 bindsym $mod+b [title="Misc"] scratchpad show

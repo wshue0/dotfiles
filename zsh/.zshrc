@@ -110,6 +110,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt SHARE_HISTORY
 
+eval "$(pyenv init -)"  
+eval "$(pyenv virtualenv-init -)"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/share/nvm/init-nvm.sh
