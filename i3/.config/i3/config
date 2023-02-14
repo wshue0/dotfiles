@@ -21,9 +21,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # Start bluetooth
 exec --no-startup-id blueman-applet
 # Start notifications
-exec_always --no-startup-id dunst
+exec --no-startup-id dunst
 # Start Albert
-exec_always --no-startup-id albert
+exec --no-startup-id albert
 # Start Redshift, for screen tint
 exec redshift -l 34.14778:-118.14452 
 # Start autosleep script
