@@ -230,7 +230,7 @@ for_window [instance="opener" title = "^(?:(?!Alacritty).)*$"] floating disable
 
 # Enable sticky for the scratchpad apps
 #for_window [class="Caprine"] sticky enable, floating enable
-for_window [title="GCAL"] sticky enable
+for_window [title="GCAL"] sticky enable, floating enable
 for_window [title="fb_messenger"] sticky enable, floating enable
 
 # Make misc. zoom windows floating

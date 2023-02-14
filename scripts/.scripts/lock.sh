@@ -13,7 +13,7 @@ circ=F5C2E7
 wrong=F28FAD
 
 
-i3lock -k -i ~/.wallpapers/evening-sky_blur.png \
+i3lock -k -i ~/.wallpapers/gits_blur.png \
     --verif-text="" --wrong-text="" --noinput-text="" \
     --{inside,ring}-color=$circ \
     --{inside,ring}wrong-color=$wrong \
