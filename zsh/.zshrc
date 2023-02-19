@@ -83,6 +83,8 @@ alias o='open'
 
 #backintime alias
 alias backup='~/.scripts/backup.sh'
+#wallpaper script alias
+alias wallpaperize='~/.scripts/wallpaper.sh'
 
 #chill alias
 alias chill='~/.scripts/widgets.sh'

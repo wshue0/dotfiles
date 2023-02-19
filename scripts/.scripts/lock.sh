@@ -13,7 +13,7 @@ circ=F5C2E7
 wrong=F28FAD
 
 
-i3lock -k -i ~/.wallpapers/gits_blur.png \
+i3lock -k -i ~/.wallpapers/wallpaper_blur.png \
     --verif-text="" --wrong-text="" --noinput-text="" \
     --{inside,ring}-color=$circ \
     --{inside,ring}wrong-color=$wrong \
@@ -26,9 +26,9 @@ i3lock -k -i ~/.wallpapers/gits_blur.png \
     --ring-width 15 \
     --time-pos="w/2:0.4*h"\
     --date-pos="w/2:h/2"\
-    --time-color=FFFFFF\
+    --time-color=1E1D2F\
     --time-str="%I:%M"\
-    --date-color=FFFFFF\
+    --date-color=1E1D2F\
     --date-str="%A, %B %d"\
     --time-size=200\
     --date-size=50\
