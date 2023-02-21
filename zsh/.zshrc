@@ -8,6 +8,7 @@ fi
 export EDITOR="lvim"
 export VISUAL="lvim"
 alias vim='lvim'
+alias vi='lvim'
 
 # set terminal
 export TERMINAL=/usr/bin/alacritty
