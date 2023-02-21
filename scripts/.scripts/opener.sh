@@ -1,10 +1,15 @@
-#!/usr/bin/zsh
+#!/usr/bin/env bash
+#path for lvim stuff
+export PATH=/home/michmich455/.local/bin:$PATH
 
-export EDITOR="nvim"
+#default editor
+export EDITOR="lvim"
+export VISUAL="lvim"
+
+#fzf settings
 source ~/.scripts/fzf_opts.sh
 
 set title
-#FZF=$(fzf)
 FZF=$(~/.scripts/preview_ueber.sh)
 if [ ! -z "${FZF}" ]
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export EDITOR="nvim"
+#experimenting
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
@@ -20,8 +20,8 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 #--color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54'
 
 #export FZF_DEFAULT_COMMAND='fd . '~'; fd --hidden -t f --exclude "{.vscode,.nvm,.jupyter,.git,node_modules,.cache,.vim}" . '~'; fd --hidden -t d --exclude "{.vscode,.nvm,.jupyter,.git,node_modules,.cache,.vim}" . '~''
-export FZF_DEFAULT_COMMAND='fd --hidden -t f --exclude "{.vscode,.nvm,.jupyter,.git,node_modules,.cache,.vim}" . '~'; fd --hidden -t d --exclude "{.vscode,.nvm,.jupyter,.git,node_modules,.cache,.vim}" . '~''
-export FZF_ALT_C_COMMAND='fd . '~'; fd --hidden -t d --exclude "{.vscode,.nvm,.jupyter,.git,node_modules}" . '.''
-export FZF_CTRL_O_COMMAND='fd . '~'; fd --hidden -t f -t l  --exclude "{.git,node_modules}" . '.''
+export FZF_DEFAULT_COMMAND='fd --hidden --exclude "{.vscode,.nvm,.jupyter,.git,node_modules,.cache,.vim}" . '~''
+export FZF_ALT_C_COMMAND='fd . -t d '~'; fd --hidden -t d --exclude "{.vscode,.nvm,.jupyter,.git,node_modules}" . '.''
+export FZF_CTRL_O_COMMAND='fd . -t f '~'; fd --hidden -t f -t l  --exclude "{.git,node_modules}" . '.''
 export FZF_CTRL_T_COMMAND='fd --hidden --exclude "{.git,node_modules}" . '/''
 

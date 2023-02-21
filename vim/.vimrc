@@ -53,6 +53,8 @@ Plug 'b3nj5m1n/kommentary'
 "indent line 
 Plug 'lukas-reineke/indent-blankline.nvim'
 
+" File explorer
+" Plug 'preservim/nerdtree'
 call plug#end()
 
 set title
@@ -79,6 +81,7 @@ set splitright
 set splitbelow
 set incsearch
 set pumheight=20
+
 "set smartindent
 
 set background=dark

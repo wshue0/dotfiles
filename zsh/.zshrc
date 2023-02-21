@@ -4,6 +4,10 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+#default editor
+export EDITOR="lvim"
+export VISUAL="lvim"
+alias vim='lvim'
 
 # set terminal
 export TERMINAL=/usr/bin/alacritty
@@ -36,9 +40,8 @@ source ~/.scripts/fzf_opts.sh
 # old ls alias
 # replace with exa
 alias ls='exa --icons -1'
-alias vim='nvim'
-alias nv='nvim'
-alias v='nvim'
+#alias nv='nvim'
+#alias v='vim'
 # ranger alias
 alias ra='ranger'
 KEYTIMEOUT=10
@@ -48,10 +51,6 @@ export XDG_CONFIG_HOME="${HOME}/.config/"
 
 #set GTK theme not needed?
 #export GTK_THEME=Gruvbox-Material-Dark-HIDPI
-
-# Set vim as default editor
-export EDITOR="nvim"
-export VISUAL="nvim"
 
 # Set bat instead of cat
 alias cat='bat'
