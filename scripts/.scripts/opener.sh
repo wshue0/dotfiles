@@ -8,22 +8,52 @@ export VISUAL="lvim"
 
 #fzf settings
 source ~/.scripts/fzf_opts.sh
-
+#use first argument to determine rip grep or opener
+RIPGREP=$1
 set title
-FZF=$(~/.scripts/preview_ueber.sh)
-if [ ! -z "${FZF}" ]
 
-then
 
-  if [ -d "${FZF}" ]
+if [[ $RIPGREP == 1 ]]; then
+  export FZF_DEFAULT_COMMAND=$FZF_RG_COMMAND
+  RG=$(fzf)
+  FZF=${RG%%:*}
 
-  then 
-    i3-msg '[instance = "opener" title = "Alacritty"] kill'
-    nohup thunar $FZF &>/dev/null
+  if [ ! -z "${FZF}" ]
 
-  else 
-    cd $(dirname $FZF)
-    rifle $FZF
+  then
+
+    if [ -d "${FZF}" ]
+
+    then 
+      i3-msg '[instance = "opener" title = "Alacritty"] kill'
+      nohup thunar $FZF &>/dev/null
+
+    else 
+      cd $(dirname $FZF)
+      rifle $FZF
+    fi
+
   fi
+else
 
+  FZF=$(~/.scripts/preview_ueber.sh)
+  if [ ! -z "${FZF}" ]
+
+  then
+
+    if [ -d "${FZF}" ]
+
+    then 
+      i3-msg '[instance = "opener" title = "Alacritty"] kill'
+      nohup thunar $FZF &>/dev/null
+
+    else 
+      cd $(dirname $FZF)
+      rifle $FZF
+    fi
+
+  fi
 fi
+
+
+

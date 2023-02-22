@@ -67,6 +67,8 @@ bindsym Ctrl+mod4+space exec "i3-msg fullscreen disable && albert show"
 
 # Opens any files using rifle and FZF matching
 bindsym $mod+o exec "i3-msg fullscreen disable && alacritty --class opener -e ~/.scripts/opener.sh"
+# Performs rip grep search on relevant files
+bindsym $mod+Shift+o exec "i3-msg fullscreen disable && alacritty --class opener -e ~/.scripts/opener.sh 1"
 
 # Saves current layout and also notifys
 bindsym $mod+Shift+s exec "notify-send 'i3' 'Saved Workspaces' & ~/.scripts/i3_save.sh" 

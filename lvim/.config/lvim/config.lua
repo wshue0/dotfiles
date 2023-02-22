@@ -147,7 +147,7 @@ if not cmp_ok or cmp == nil then
 end
 
 lvim.builtin.cmp.mapping["<tab>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { 'i', 's', 'c'})-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { 'i', 's', 'c'}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping(cmp.config.disable, { 'c' }) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 lvim.builtin.cmp.mapping["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's', 'c' })
 lvim.builtin.cmp.mapping["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's', 'c'} )
 lvim.builtin.cmp.mapping["<C-y>"] = cmp.mapping(cmp.config.disable, { 'i', 's', 'c'}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.

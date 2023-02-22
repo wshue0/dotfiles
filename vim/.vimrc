@@ -94,13 +94,13 @@ set shortmess+=c
 "undo search highlight
 nnoremap <ESC> <cmd>nohlsearch<CR>
 
-nnoremap <C-w> <Nop>
+"nnoremap <C-w> <Nop>
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
-nnoremap <C-w> <cmd>:bd<CR>
-nnoremap <Leader>h <cmd>bprev<CR>
-nnoremap <Leader>l <cmd>bnext<CR>
+nnoremap <Leader>c <cmd>:bd<CR>
+nnoremap <Leader>h <cmd>:BufferLineCyclePrev<CR>
+nnoremap <Leader>l <cmd>:BufferLineCycleNext<CR>
 
 "chad tree
 "vnoremap <Leader>o <cmd>:Vexplore<CR>
@@ -114,7 +114,7 @@ nnoremap <S-TAB> <<
 vnoremap <TAB> >gv
 vnoremap <S-TAB> <gv
 
-nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <S-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>f <cmd>Telescope find_files<cr>
