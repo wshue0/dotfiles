@@ -87,7 +87,7 @@ alias backup='~/.scripts/backup.sh'
 alias wallpaperize='~/.scripts/wallpaper.sh'
 
 #chill alias
-alias chill='~/.scripts/widgets.sh'
+alias dotsync='~/.dotfiles/sync.sh'
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
