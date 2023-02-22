@@ -27,7 +27,7 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- adding no search highlight after escape
-lvim.keys.normal_mode["<ESC>"] = ":nohlsearch<CR>"
+--lvim.keys.normal_mode["<ESC>"] = ":nohlsearch<CR>"
 -- adding tab indent
 lvim.keys.normal_mode["<TAB>"] = ">>"
 lvim.keys.normal_mode["<S-TAB>"] = "<<"
@@ -35,15 +35,18 @@ lvim.keys.visual_mode["<TAB>"] = ">gv"
 lvim.keys.visual_mode["<S-TAB>"] = "<gv"
 
 --adding escape turns off popups
--- local function escape_popup()
---   if vim.fn.pumvisible() == 1 then
---     return ':nohlsearch<CR>'
---   end
---   --return ':nohlsearch<CR>'
---   return '<S-k>q'
--- end
--- lvim.keys.normal_mode["<ESC>"] = escape_popup
+--from https://github.com/mawkler/nvim/blob/fc218645433f03995916f9e1c032bda7956fcb6e/lua/utils.lua#L56-L63
+local function close_floating_windows()
+  for _, win in pairs(vim.api.nvim_list_wins()) do
+    if vim.api.nvim_win_get_config(win).relative == 'win' then
+      vim.api.nvim_win_close(win, false)
+    end
+  end
+  vim.cmd('nohlsearch')
+end
 
+--
+lvim.keys.normal_mode["<ESC>"] = close_floating_windows
 
 -- adding buffer navigation
 -- close buffer 
@@ -137,15 +140,17 @@ lvim.builtin.which_key.mappings["p"] = { "<cmd>Telescope projects<CR>", "Project
 lvim.builtin.which_key.mappings["b"] = {}
 lvim.builtin.which_key.mappings["T"] = {}
 --TODO, use actual bufferline api call to close buffer, also removes save button
-lvim.builtin.which_key.mappings["w"] = { ":BufferKill<CR>", "Close Buffer"}
-lvim.builtin.which_key.mappings["c"] = {}
+-- lvim.builtin.which_key.mappings["w"] = { ":BufferKill<CR>", "Close Buffer"}
+-- lvim.builtin.which_key.mappings["c"] = {}
 --Don't really use these
 -- lvim.builtin.which_key.mappings["v"] = { ":vsplit<CR>", "Vertical Split" }
 -- lvim.builtin.which_key.mappings["i"] = { ":split!<CR>", "Horizontal Split" }
 lvim.builtin.which_key.mappings["h"] = { ":BufferLineCyclePrev<CR>", "Prev Buffer" }
 lvim.builtin.which_key.mappings["l"] = { ":BufferLineCycleNext<CR>", "Next Buffer" }
 --telescope ignore weird files
+
 --cmp-cmdline setup
+
 --rounded border
 lvim.builtin.cmp.window.border = "rounded"
 lvim.builtin.cmp.experimental.ghost_text = "true"
