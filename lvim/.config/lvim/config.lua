@@ -11,6 +11,8 @@ an executable
 -- (custom) vim settings
 vim.opt.relativenumber = true
 vim.opt.cursorcolumn = true
+vim.opt.sidescrolloff = 0
+vim.opt.scrolloff = 30
 
 -- general
 lvim.log.level = "warn"
@@ -31,9 +33,20 @@ lvim.keys.normal_mode["<TAB>"] = ">>"
 lvim.keys.normal_mode["<S-TAB>"] = "<<"
 lvim.keys.visual_mode["<TAB>"] = ">gv"
 lvim.keys.visual_mode["<S-TAB>"] = "<gv"
+
+--adding escape turns off popups
+-- local function escape_popup()
+--   if vim.fn.pumvisible() == 1 then
+--     return ':nohlsearch<CR>'
+--   end
+--   --return ':nohlsearch<CR>'
+--   return '<S-k>q'
+-- end
+-- lvim.keys.normal_mode["<ESC>"] = escape_popup
+
+
 -- adding buffer navigation
 -- close buffer 
---lvim.keys.normal_mode["<C-w>"] = ":bd<CR>"
 lvim.builtin.terminal.open_mapping = "<C-t>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
@@ -71,19 +84,6 @@ lvim.builtin.telescope.pickers = {
   },
 }
 
--- Change theme settings
--- lvim.builtin.theme.options.dim_inactive = true
--- lvim.builtin.theme.options.style = "storm"
-
--- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["p"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["b"] = {}
---TODO, use actual bufferline api call to close buffer
-lvim.builtin.which_key.mappings["v"] = { ":vsplit<CR>", "Vertical Split" }
-lvim.builtin.which_key.mappings["i"] = { ":split!<CR>", "Horizontal Split" }
-lvim.builtin.which_key.mappings["h"] = { ":BufferLineCyclePrev<CR>", "Prev Buffer" }
-lvim.builtin.which_key.mappings["l"] = { ":BufferLineCycleNext<CR>", "Next Buffer" }
---telescope ignore weird files
 lvim.builtin.telescope.defaults.file_ignore_patterns = {
     "vendor/*",
     "%.lock",
@@ -127,6 +127,24 @@ lvim.builtin.telescope.defaults.file_ignore_patterns = {
   }
 --
 --
+
+-- Change theme settings
+-- lvim.builtin.theme.options.dim_inactive = true
+-- lvim.builtin.theme.options.style = "storm"
+
+-- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings["p"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["b"] = {}
+lvim.builtin.which_key.mappings["T"] = {}
+--TODO, use actual bufferline api call to close buffer, also removes save button
+lvim.builtin.which_key.mappings["w"] = { ":BufferKill<CR>", "Close Buffer"}
+lvim.builtin.which_key.mappings["c"] = {}
+--Don't really use these
+-- lvim.builtin.which_key.mappings["v"] = { ":vsplit<CR>", "Vertical Split" }
+-- lvim.builtin.which_key.mappings["i"] = { ":split!<CR>", "Horizontal Split" }
+lvim.builtin.which_key.mappings["h"] = { ":BufferLineCyclePrev<CR>", "Prev Buffer" }
+lvim.builtin.which_key.mappings["l"] = { ":BufferLineCycleNext<CR>", "Next Buffer" }
+--telescope ignore weird files
 --cmp-cmdline setup
 --rounded border
 lvim.builtin.cmp.window.border = "rounded"
@@ -135,29 +153,24 @@ lvim.builtin.cmp.experimental.ghost_text = "true"
 --highlight and select first result 
 lvim.builtin.cmp.completion.completeopt = "menu,menuone,noinsert"
 
+
 --code from https://github.com/LunarVim/LunarVim/issues/2663
 -- to make sure you won't get any errors
-local cmp_ok, cmp = pcall(require, "cmp")
-if not cmp_ok or cmp == nil then
-  cmp = {
-    mapping = function(...) end,
-    setup = { filetype = function(...) end, cmdline = function(...) end },
-    config = { sources = function(...) end },
-  }
-end
+local _, cmp = pcall(require, "cmp")
+-- if not cmp_ok or cmp == nil then
+--   cmp = {
+--     mapping = function(...) end,
+--     setup = { filetype = function(...) end, cmdline = function(...) end },
+--     config = { sources = function(...) end },
+--   }
+-- end
 
-lvim.builtin.cmp.mapping["<tab>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { 'i', 's', 'c'})-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping(cmp.config.disable, { 'c' }) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-lvim.builtin.cmp.mapping["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's', 'c' })
-lvim.builtin.cmp.mapping["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's', 'c'} )
-lvim.builtin.cmp.mapping["<C-y>"] = cmp.mapping(cmp.config.disable, { 'i', 's', 'c'}) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
---remap tab to have different behavior based on the mode
---[[ lvim.builtin.cmp.mapping["<TAB>"] = { 
-  c = cmp.mapping.select_next_item(),
-  i = cmp.mapping.confirm({ select = false }),
-  v = cmp.mapping.confirm({ select = false }),
-} ]]
---lvim.builtin.cmp.mapping["<S-TAB>"] = cmp.mapping.select_prev_item(), { 'c' })
+--override some keyboard mappings
+lvim.builtin.cmp.mapping["<tab>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { 'i', 'c', 's' })-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping(cmp.config.disable, { 'c', 's' })-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false}), { 'i' })-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+--lvim.builtin.cmp.mapping["<tab>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { 's' })-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+-- lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping(cmp.config.disable, { 'c' }) --disable enter to confirm
 
 --completion in command mode
 cmp.setup.cmdline(":", {
@@ -178,10 +191,8 @@ cmp.setup.cmdline('/', {
   }),
 })
 
---override some keyboard mappings
 
 --tab to confirm 
---cmp.mapping['<CR>'] = cmp.mapping
 
 -- lvim.builtin.which_key.mappings["t"] = {
 --   name = "+Trouble",
