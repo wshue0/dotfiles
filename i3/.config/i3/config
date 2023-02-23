@@ -73,13 +73,7 @@ bindsym $mod+Shift+o exec "i3-msg fullscreen disable && alacritty --class opener
 # Saves current layout and also notifys
 bindsym $mod+Shift+s exec "notify-send 'i3' 'Saved Workspaces' & ~/.scripts/i3_save.sh" 
 
-# Shortcut for messaging tab
-#bindsym $mod+m workspace number $ws6
-
 # for cycling between consecutive workspaces (and the reverse)
-#bindsym $mod+Tab workspace next 
-#bindsym $mod+Shift+Tab workspace prev
-# UPDATE: change to window searcher
 bindsym $mod+Tab exec "rofi -show window"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -89,7 +83,6 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # Start a terminal with same pwd
-# bindsym $mod+Shift+Return exec "~/.scripts/spawn_instance_pwd.sh"
  bindsym $mod+Shift+Return exec "alacritty --working-directory $(xcwd)"
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -174,7 +167,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 workspace_auto_back_and_forth yes
 
 # reload the configuration file
-#bindsym $mod+Shift+c reload
 bindsym $mod+Shift+c exec "notify-send 'i3' 'Reloaded Configuration' & i3-msg reload" 
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -196,8 +188,6 @@ focus_wrapping no
 # Toggle floating windows for all windows on workspace
 bindsym $mod+Shift+f [workspace="__focused__"] floating toggle
 
-# Disable focus on i3frames, so when i3 restores it doesn't spam the screen
-
 # Disable all Borders
 for_window [class=".*"] border pixel 0
 for_window [title=".*"] border pixel 0
@@ -206,13 +196,6 @@ for_window [title=".*"] border pixel 0
 gaps inner 15
 
 ### Styling of i3 titles/windows
-# class                 border  backgr. text    indicator child_border
-#koi
-# client.focused          #000000 #F39F5C #170c04 #F39F5C   #F39F5C
-# client.focused_inactive #000000 #F39F5C #777777 #F39F5C   #F39F5C
-# client.unfocused        #000000 #170C04 #ebd3a4 #170C04   #170C04
-# client.urgent           #000000 #D25F2C #ffffff #D25F2C   #D25F2C
-# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 #cat
 client.focused          #1E1D2F #ABE9B3 #6E6C7E #ABE9B3   #ABE9B3
 client.focused_inactive #1E1D2F #ABE9B3 #777777 #ABE9B3   #ABE9B3
@@ -229,12 +212,10 @@ for_window [window_role="pop-up"] floating enable
 # Make file opener floating in FZF mode, disable after executing rifle
 for_window [instance="opener" title = "Alacritty"] sticky enable, floating enable, resize set 2400 1200, move position center
 for_window [instance="opener" title = "^(?:(?!Alacritty).)*$"] floating disable
-#for_window [class="Alacritty" floating ] move position mouse, resize set 1000 1000
 
 # Enable sticky for the scratchpad apps
-#for_window [class="Caprine"] sticky enable, floating enable
+for_window [class="Caprine"] sticky enable, floating enable
 for_window [title="GCAL"] sticky enable, floating enable
-for_window [title="fb_messenger"] sticky enable, floating enable
 
 # Make misc. zoom windows floating
 for_window [class="zoom" title = "Settings"] floating enable
