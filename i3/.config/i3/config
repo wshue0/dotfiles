@@ -80,7 +80,7 @@ bindsym $mod+Tab exec "rofi -show window"
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec "i3-msg fullscreen disable && alacritty"
 
 # Start a terminal with same pwd
  bindsym $mod+Shift+Return exec "alacritty --working-directory $(xcwd)"
