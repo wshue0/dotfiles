@@ -149,7 +149,6 @@ lvim.builtin.which_key.mappings["h"] = { ":BufferLineCyclePrev<CR>", "Prev Buffe
 lvim.builtin.which_key.mappings["l"] = { ":BufferLineCycleNext<CR>", "Next Buffer" }
 --telescope ignore weird files
 
---cmp-cmdline setup
 
 --rounded border
 lvim.builtin.cmp.window.border = "rounded"
@@ -158,46 +157,17 @@ lvim.builtin.cmp.experimental.ghost_text = "true"
 --highlight and select first result 
 lvim.builtin.cmp.completion.completeopt = "menu,menuone,noinsert"
 
+--cmp-cmdline setup
+lvim.builtin.cmp.cmdline.enable = true
 
---code from https://github.com/LunarVim/LunarVim/issues/2663
--- to make sure you won't get any errors
-local _, cmp = pcall(require, "cmp")
--- if not cmp_ok or cmp == nil then
---   cmp = {
---     mapping = function(...) end,
---     setup = { filetype = function(...) end, cmdline = function(...) end },
---     config = { sources = function(...) end },
---   }
--- end
 
+
+--tab to confirm 
+local _,cmp = pcall(require, "cmp")
 --override some keyboard mappings
 lvim.builtin.cmp.mapping["<tab>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { 'i', 'c', 's' })-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping(cmp.config.disable, { 'c', 's' })-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping(cmp.mapping.confirm({ select = false}), { 'i' })-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
---lvim.builtin.cmp.mapping["<tab>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { 's' })-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
--- lvim.builtin.cmp.mapping["<CR>"] = cmp.mapping(cmp.config.disable, { 'c' }) --disable enter to confirm
-
---completion in command mode
-cmp.setup.cmdline(":", {
-  mapping = lvim.builtin.cmp.mapping,
-  sources = {
-    { name = "path" },
-    { name = "cmdline" },
-  },
-})
-
---completion in search
-cmp.setup.cmdline('/', {
-  mapping = lvim.builtin.cmp.mapping,
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp_document_symbol' },
-  }, {
-    { name = 'buffer' },
-  }),
-})
-
-
---tab to confirm 
 
 -- lvim.builtin.which_key.mappings["t"] = {
 --   name = "+Trouble",
@@ -319,9 +289,6 @@ lvim.plugins = {
     },
     {
       "chrisbra/Colorizer",
-    },
-    {
-      "hrsh7th/cmp-cmdline",
     },
 }
 

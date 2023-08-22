@@ -26,9 +26,9 @@ i3lock -k -i ~/.wallpapers/wallpaper_blur.png \
     --ring-width 15 \
     --time-pos="w/2:0.4*h"\
     --date-pos="w/2:h/2"\
-    --time-color=1E1D2F\
+    --time-color=FFFFFF\
     --time-str="%I:%M"\
-    --date-color=1E1D2F\
+    --date-color=FFFFFF\
     --date-str="%A, %B %d"\
     --time-size=200\
     --date-size=50\

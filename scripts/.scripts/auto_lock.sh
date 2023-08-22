@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-xset s off -dpms
+sleep 1; xset s off -dpms
+sleep 1; xset dpms 0 0 0
 # --not-when-fullscreen \
 xidlehook \
     --not-when-audio \

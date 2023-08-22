@@ -8,6 +8,7 @@ fi
 #Seting env vars and aliases
 export EDITOR="lvim"
 export VISUAL="lvim"
+export LIBVA_DRIVER_NAME="nvidia"
 alias vim='lvim'
 alias vi='lvim'
 alias ls='exa --icons -1'

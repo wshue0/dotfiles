@@ -16,7 +16,9 @@ set title
 if [[ $RIPGREP == 1 ]]; then
   export FZF_DEFAULT_COMMAND=$FZF_RG_COMMAND
   RG=$(fzf)
-  FZF=${RG%%:*}
+  TEMP=${RG%%:*}
+  FZF=$(sed 's,\s*\\\s*, ,g' $TEMP)
+  notify-send $FZF
 
   if [ ! -z "${FZF}" ]
 

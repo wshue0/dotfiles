@@ -57,6 +57,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'preservim/nerdtree'
 call plug#end()
 
+set encoding=UTF-8
 set title
 set clipboard=unnamedplus
 set backspace=indent,eol,start
