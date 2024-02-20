@@ -14,7 +14,7 @@
                 "x": 0,
                 "y": 0
             },
-            "name": "sean@arch-sean:~",
+            "name": "shuebox",
             "percent": 0.665217391304348,
             "swallows": [{
                 "instance": "^neofetch$"
@@ -40,7 +40,7 @@
                 "x": 0,
                 "y": 0
             },
-            "name": "sean@arch-sean:~",
+            "name": "shuebox",
             "percent": 0.6,
             "swallows": [{
                 "instance": "^unimatrix$"

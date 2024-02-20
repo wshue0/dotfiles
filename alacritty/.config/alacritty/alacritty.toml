@@ -8,7 +8,7 @@ size = 11.0
 
 [font.normal]
 family = "JetBrainsMono NFM"
-style = "Regular"
+style = "Book"
 
 [window]
 dynamic_title = true

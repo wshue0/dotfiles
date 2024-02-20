@@ -1,0 +1,49 @@
+cookie: sp_t=78fa53510c145b5bd03edd12edac8a59; sp_landing=https%3A%2F%2Fopen.spotify.com%2F%3Fsp_cid%3D78fa53510c145b5bd03edd12edac8a59%26device%3Ddesktop; sp_dc=AQBcUvsJfbgn-SFgYlx-F02sSIYtGNvJPHqHCGyVBFvlALwl1iu9QB1_o0jZkJZByidbyeXpm7MzZUB7NbyyToD57sUcYfCI2Cey65XtNnwwcka87s75GESFGnHDwb_p_hVd5tLrMf1W6_ZuyX_2OQnXtZx1WIJw; sp_key=808a8d73-676b-4f91-b0b4-020b60aacf79; sp_m=us; sp_gaid=0088fc3892242eb9ed0fff9005ced16ada11e84c89c0d5b8f1e9ba; sp_pfhp=2c2ccb58-8a92-4713-a1c0-8b43b3090b49
+player: spotify
+host: lyricsapi.vercel.app
+ignoreErrors: true
+timerInterval: 200
+updateInterval: 2000
+style:
+  hAlignment: center
+  before:
+    background: ""
+    foreground: ""
+    bold: true
+    italic: false
+    undeline: false
+    strikethrough: false
+    blink: false
+    faint: false
+  current:
+    background: ""
+    foreground: ""
+    bold: true
+    italic: false
+    undeline: false
+    strikethrough: false
+    blink: false
+    faint: false
+  after:
+    background: ""
+    foreground: ""
+    bold: false
+    italic: false
+    undeline: false
+    strikethrough: false
+    blink: false
+    faint: true
+pipe:
+  length: 0
+  overflow: word
+mpd:
+  address: 127.0.0.1:6600
+  password: ""
+mopidy:
+  address: 127.0.0.1:6680
+mpris:
+  players: []
+browser:
+  port: 8974
+local:
+  folder: ""
