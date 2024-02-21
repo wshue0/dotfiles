@@ -38,6 +38,7 @@ feh 3.10.2-1
 firefox 122.0.1-1
 flameshot 12.1.0-3
 flex 2.6.4-5
+fontforge 20230101-3
 fzf 0.46.1-1
 gcc 13.2.1-5
 gdb 14.1-1
@@ -74,6 +75,7 @@ mpv 1:0.37.0-2
 muparser 2.3.4-1
 neofetch 7.1.0-2
 neovim 0.9.5-2
+nerdfix 0.4.0-1
 netctl 1.29-1
 networkmanager 1.44.2-3
 networkmanager-dmenu-git r193.e422108-1
@@ -124,6 +126,8 @@ thunar 4.18.10-1
 tmux 3.4-4
 tree 2.1.1-1
 ttf-apple-emoji 16.4-1
+ttf-iosevka-nerd 3.1.1-1
+ttf-jetbrains-mono-nerd 3.1.1-1
 ttf-ms-fonts 2.0-12
 tty-clock-git 1:2.3.r40.f2f847c-2
 ueberzug 18.2.2-1

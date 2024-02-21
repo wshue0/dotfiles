@@ -5,7 +5,9 @@
 set $mod Mod1
 
 # Font for Windows
-font pango:DejaVu Sans Mono 10
+# font pango:DejaVu Sans Mono 10
+# font pango:DejaVu Sans Mono 10
+font pango:Liberation Sans  10
 
 ### Start up Apps
 # Info: Need to set the lockscreen first so that the loading things aren't seen
