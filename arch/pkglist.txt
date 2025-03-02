@@ -27,13 +27,14 @@ bluez 5.79-1
 bluez-utils 5.79-1
 brave-bin 1:1.75.181-1
 calc 2.15.1.0-1
-caprine 2.60.1-1
+caprine 2.60.3-1
 clang 19.1.7-1
 cmake 3.31.6-1
 ddcutil 2.2.0-1
 discord 0.0.87-1
 dunst 1.12.1-1
 efibootmgr 18-3
+electron29-bin 29.4.6-2
 eza 0.20.23-1
 fd 10.2.0-1
 feh 3.10.3-1
@@ -46,10 +47,12 @@ gcc 14.2.1+r753+g1cd744a6828f-1
 gdb 16.2-1
 git 2.48.1-2
 github-cli 2.67.0-1
+gn 0.2207.ed1abc10-1
 gnome-keyring 1:46.2-1
 gnu-netcat 0.7.1-10
 go 2:1.24.0-1
 google-chrome 133.0.6943.141-1
+gperf 3.1-5
 groff 1.23.0-7
 grub 2:2.12.r226.g56ccc5ed-1
 htop 3.3.0-3
@@ -67,6 +70,8 @@ lightdm-webkit2-greeter 2.2.5-8
 linux 6.13.5.arch1-1
 linux-firmware 20250210.5bc5868b-1
 linux-headers 6.13.5.arch1-1
+lld 19.1.7-1
+llvm 19.1.7-1
 m4 1.4.19-3
 make 4.4.1-2
 man-db 2.13.0-1
