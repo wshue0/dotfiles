@@ -179,6 +179,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+Shift+equal [class=".*"] scratchpad show
 # show scratchpad
 bindsym $mod+m [class="Caprine"] scratchpad show
+# gmail
+bindsym $mod+Shift+m [title="GMAIL"] scratchpad show
 #bindsym $mod+m [title="fb_messenger"] scratchpad show
 bindsym $mod+d [title="GCAL"] scratchpad show
 # new for random chrome tab for searching stuff
@@ -218,6 +220,7 @@ for_window [instance="opener" title = "^(?:(?!Alacritty).)*$"] floating disable
 # Enable sticky for the scratchpad apps
 for_window [class="Caprine"] sticky enable, floating enable
 for_window [title="GCAL"] sticky enable, floating enable
+for_window [title="GMAIL"] sticky enable, floating enable
 
 # Make misc. zoom windows floating
 for_window [class="zoom" title = "Settings"] floating enable

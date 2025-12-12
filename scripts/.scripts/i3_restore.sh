@@ -12,7 +12,7 @@ i3-resurrect restore -w 9 --layout-only
 #i3-resurrect restore -w 10
 i3-resurrect restore -w __i3_scratch --layout-only
 sleep 5
-brave &
+google-chrome-stable &
 sleep 10
 caprine &
 sleep 5
