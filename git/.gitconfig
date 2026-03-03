@@ -1,8 +1,8 @@
 [user]
 	email = wshue0@github.com
 	name = wshue0
-[crential]
-	ehlper = store
+[credential]
+	helper = store
 	helper = store
 [credential "https://github.com"]
 	helper = 

@@ -11,7 +11,7 @@ export VISUAL="lvim"
 export LIBVA_DRIVER_NAME="nvidia"
 alias vim='lvim'
 alias vi='lvim'
-alias ls='exa --icons -1'
+alias ls='eza --icons -1'
 alias ra='ranger'
 # Set bat instead of cat
 alias cat='bat'
