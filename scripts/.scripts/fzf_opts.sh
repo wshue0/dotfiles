@@ -16,7 +16,7 @@ export FZF_CTRL_T_OPTS=$FZF_DEFAULT_OPTS'
 --preview="pistol {}"
 '
 # FZF_ALT_C_OPTS
-export FZF_ALT_C_COMMAND='fd --hidden -t d --exclude "{.cmake,.android,.pyenv,.npm,.mozilla,.cache,go,.cargo,.config,.local,.vscode,.nvm,.jupyter,.git,node_modules}" . '~''
+export FZF_ALT_C_COMMAND='fd --hidden -t d --exclude "{.cmake,.android,.pyenv,.npm,.mozilla,.cache,go,.cargo,.config,.local,.vscode,.nvm,.jupyter,.git,node_modules,.gemini}" . '~''
 export FZF_OPENER_COMMAND='rg --files --hidden ~/.scripts/ ~/.dotfiles/ ~/Documents/ ~/Projects/ ~/Downloads/ ~/Pictures ; fd . -t d '~''
 export FZF_CTRL_T_COMMAND='fd --hidden --exclude "{.git,node_modules}" . '/''
 export FZF_RG_COMMAND='rg --hidden . ~/.scripts/ ~/.dotfiles/ ~/Documents/ ~/Projects/ ~/Downloads/ ~/Pictures'
