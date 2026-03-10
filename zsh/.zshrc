@@ -22,7 +22,7 @@ alias wallpaperize='~/.scripts/wallpaper.sh'
 alias dotsync='~/.dotfiles/sync.sh'
 
 # set terminal
-export TERMINAL=/usr/bin/alacritty
+export TERMINAL=/usr/bin/kitty
 
 # other path/home variables
 #appending to path

@@ -27,7 +27,7 @@ if [[ $RIPGREP == 1 ]]; then
     if [ -d "${FZF}" ]
 
     then 
-      i3-msg '[instance = "opener" title = "Alacritty"] kill'
+      i3-msg '[instance = "opener" title = "opener.sh"] kill'
       nohup thunar $FZF &>/dev/null
 
     else 
@@ -46,7 +46,7 @@ else
     if [ -d "${FZF}" ]
 
     then 
-      i3-msg '[instance = "opener" title = "Alacritty"] kill'
+      i3-msg '[instance = "opener" title = "opener.sh"] kill'
       nohup thunar $FZF &>/dev/null
 
     else 

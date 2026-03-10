@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # Load clock and stuff
-alacritty -t vis --class vis -e vis &
-alacritty --hold -t arch --class arch -o font.size=9 -e neofetch --logo &
-alacritty --hold -t hexblock --class hexblock -e ~/.scripts/hex-block.sh &
-alacritty --hold -t star --class star -e starfetch -r &
-alacritty -t clock --class clock -e tty-clock -t -c &
-alacritty --hold -t fetch --class fetch -o font.size=9 -e neofetch --stdout &
-alacritty --hold -t lyrics --class lyrics -o font.size=16 -e sptlrx --current "bold,#F5C2E7" &
+kitty --title vis --class vis --name vis vis &
+kitty --hold --title arch --class arch --name arch --override font_size=9 neofetch --logo &
+kitty --hold --title hexblock --class hexblock --name hexblock ~/.scripts/hex-block.sh &
+kitty --hold --title star --class star --name star starfetch -r &
+kitty --title clock --class clock --name clock tty-clock -t -c &
+kitty --hold --title fetch --class fetch --name fetch --override font_size=9 neofetch --stdout &
+kitty --hold --title lyrics --class lyrics --name lyrics --override font_size=16 sptlrx --current "bold,#F5C2E7" &
 sleep 1
 
 i3-msg '[class = "vis" instance = "vis"] floating enable, resize set 1200 700, move position 2303 790'

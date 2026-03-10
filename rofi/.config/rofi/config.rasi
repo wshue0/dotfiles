@@ -4,7 +4,7 @@ configuration{
     font: "Hack Nerd Font 12";
     show-icons: true;
     icon-theme: "Oranchelo";
-    terminal: "st";
+    terminal: "kitty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;

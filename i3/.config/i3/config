@@ -62,15 +62,15 @@ bindsym $mod+Ctrl+4 exec --no-startup-id flameshot gui -c -p ~/Pictures/Screensh
 bindsym $mod+Ctrl+3 exec --no-startup-id flameshot full -c -p ~/Pictures/Screenshots
 
 # launch htop (like task manager for mac)
-bindsym $mod+mod4+Escape exec "exec alacritty -e htop"
+bindsym $mod+mod4+Escape exec "exec kitty htop"
 
 # Disable Full screen if possible, and launch Albert (Spotlight replacement)
 bindsym Ctrl+mod4+space exec "i3-msg fullscreen disable && albert show"
 
 # Opens any files using rifle and FZF matching
-bindsym $mod+o exec "i3-msg fullscreen disable && alacritty --class opener -e ~/.scripts/opener.sh"
+bindsym $mod+o exec "i3-msg fullscreen disable && kitty --class opener --name opener ~/.scripts/opener.sh"
 # Performs rip grep search on relevant files
-bindsym $mod+Shift+o exec "i3-msg fullscreen disable && alacritty --class opener -e ~/.scripts/opener.sh 1"
+bindsym $mod+Shift+o exec "i3-msg fullscreen disable && kitty --class opener --name opener ~/.scripts/opener.sh 1"
 
 # Saves current layout and also notifys
 bindsym $mod+Shift+s exec "notify-send 'i3' 'Saved Workspaces' & ~/.scripts/i3_save.sh" 
@@ -82,10 +82,10 @@ bindsym $mod+Tab exec "rofi -show window"
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec "i3-msg fullscreen disable && alacritty"
+bindsym $mod+Return exec "i3-msg fullscreen disable && kitty"
 
 # Start a terminal with same pwd
- bindsym $mod+Shift+Return exec "alacritty --working-directory $(xcwd)"
+ bindsym $mod+Shift+Return exec bash -c 'kitty --directory "$(xcwd)"'
 # Kill focused window
 bindsym $mod+Shift+q kill
 
@@ -214,8 +214,8 @@ for_window [window_role="pop-up"] floating enable
 
 # Custom window class/title handling
 # Make file opener floating in FZF mode, disable after executing rifle
-for_window [instance="opener" title = "Alacritty"] sticky enable, floating enable, resize set 2400 1200, move position center
-for_window [instance="opener" title = "^(?:(?!Alacritty).)*$"] floating disable
+for_window [instance="opener" class="opener"] sticky enable, floating enable, resize set 2400 1200, move position center
+for_window [instance="opener" title="Nvim"] floating disable
 
 # Enable sticky for the scratchpad apps
 for_window [class="Caprine"] sticky enable, floating enable
