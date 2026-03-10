@@ -38,7 +38,7 @@ if [[ $RIPGREP == 1 ]]; then
   fi
 else
 
-  FZF=$(~/.scripts/preview_ueber.sh)
+  FZF=$(~/.scripts/preview_fzf.sh)
   if [ ! -z "${FZF}" ]
 
   then
